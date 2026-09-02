@@ -430,16 +430,56 @@ FPGA Implementation
 
 ## 👥 Team
 
-This project was collaboratively designed, simulated, documented, and implemented by:
 <p align="center">
-  
-**Jayesh Shahare** • **Atharva Chaudhari** • **Arya Chawale** • **Urja Doshi** 
-
-<br><br>
-Electronics & Communication Engineering
+  <i>Collaboratively designed, simulated, documented, and implemented by our team.</i>
+</p>
 
 <br>
-Digital Logic • Verilog • FPGA • VLSI
+
+<p align="center">
+
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=2C5364&center=true&vCenter=true&width=500&lines=Meet+the+Team+%F0%9F%91%8B;Digital+Logic+%7C+Verilog+%7C+FPGA;Building+with+Hardware+%26+Code" alt="Meet the Team" />
+
+</p>
+
+<br>
+
+<table align="center">
+  <tr>
+    <td align="center" width="25%">
+      <b>👨‍💻 Jayesh Shahare</b>
+      <br><br>
+      <sub>Digital Logic • Verilog</sub>
+    </td>
+    <td align="center" width="25%">
+      <b>👨‍💻 Atharva Chaudhari</b>
+      <br><br>
+      <sub>FPGA • Simulation</sub>
+    </td>
+    <td align="center" width="25%">
+      <b>👨‍💻 Arya Chawale</b>
+      <br><br>
+      <sub>Testing • Documentation</sub>
+    </td>
+    <td align="center" width="25%">
+      <b>👨‍💻 Urja Doshi</b>
+      <br><br>
+      <sub>RTL Design • FPGA • Documentation</sub>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,50:203a43,100:2c5364&height=80&section=header&text=Electronics%20%26%20Communication%20Engineering&fontSize=20&fontColor=ffffff&animation=fadeIn" width="80%" />
+</p>
+
+<p align="center">
+  <b>Digital Logic</b> &nbsp;•&nbsp;
+  <b>Verilog HDL</b> &nbsp;•&nbsp;
+  <b>FPGA</b> &nbsp;•&nbsp;
+  <b>VLSI</b>
 </p>
 
 ---
