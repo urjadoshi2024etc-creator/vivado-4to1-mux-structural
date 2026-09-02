@@ -445,7 +445,7 @@ Digital Logic • Verilog • FPGA • VLSI
 ---
 
 <p align="center">
-### 🔀 Select • Route • Output
+🔀 Select • Route • Output
 <b>Built with Verilog HDL and Xilinx Vivado.</b>
 </p>
 
