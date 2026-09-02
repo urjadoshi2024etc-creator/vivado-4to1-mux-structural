@@ -442,8 +442,7 @@ FPGA Implementation
 <br>
 
 <table align="center">
-  <tr>
-
+<tr>
 ```
 <td align="center" width="25%">
   <h2>👨‍💻</h2>
