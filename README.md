@@ -443,7 +443,6 @@ FPGA Implementation
 
 <table align="center">
 <tr>
-```
 <td align="center" width="25%">
   <h2>👨‍💻</h2>
   <b>Jayesh Shahare</b>
@@ -479,7 +478,6 @@ FPGA Implementation
   <br>
   <sub>FPGA Implementation</sub>
 </td>
-```
 
   </tr>
 </table>
