@@ -427,15 +427,14 @@ FPGA Implementation
 ```
 
 ---
-
 ## 👥 Team
 
 > [!IMPORTANT]
-> This project was collaboratively **designed, simulated, documented, and implemented** by our team.
+> **This project was collaboratively designed, simulated, documented, and implemented by our team.**
 
 <p align="center">
   <img
-    src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1200&color=2C5364&center=true&vCenter=true&width=600&lines=Meet+the+Team+%F0%9F%91%8B;Digital+Logic+%7C+Verilog+%7C+FPGA;Building+Logic+One+MUX+at+a+Time"
+    src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1200&center=true&vCenter=true&width=650&lines=Meet+the+Team+%F0%9F%91%8B;Digital+Logic+%7C+Verilog+%7C+FPGA;Design+%E2%80%A2+Simulation+%E2%80%A2+Implementation"
     alt="Meet the Team"
   />
 </p>
@@ -444,33 +443,42 @@ FPGA Implementation
 
 <table align="center">
   <tr>
-    <td align="center" width="25%">
-      <h3>👨‍💻</h3>
-      <b>Jayesh Shahare</b>
-      <br>
-      <sub>Digital Logic & Verilog</sub>
-    </td>
 
 ```
 <td align="center" width="25%">
-  <h3>👨‍💻</h3>
+  <h2>👨‍💻</h2>
+  <b>Jayesh Shahare</b>
+  <br><br>
+  <sub>Digital Logic</sub>
+  <br>
+  <sub>Verilog HDL</sub>
+</td>
+
+<td align="center" width="25%">
+  <h2>👨‍💻</h2>
   <b>Atharva Chaudhari</b>
+  <br><br>
+  <sub>FPGA</sub>
   <br>
-  <sub>FPGA & Simulation</sub>
+  <sub>Simulation</sub>
 </td>
 
 <td align="center" width="25%">
-  <h3>👨‍💻</h3>
+  <h2>👨‍💻</h2>
   <b>Arya Chawale</b>
+  <br><br>
+  <sub>Testing</sub>
   <br>
-  <sub>Testing & Documentation</sub>
+  <sub>Documentation</sub>
 </td>
 
 <td align="center" width="25%">
-  <h3>👨‍💻</h3>
+  <h2>👨‍💻</h2>
   <b>Urja Doshi</b>
+  <br><br>
+  <sub>RTL Design</sub>
   <br>
-  <sub>RTL Design & FPGA</sub>
+  <sub>FPGA Implementation</sub>
 </td>
 ```
 
@@ -480,8 +488,13 @@ FPGA Implementation
 <br>
 
 > [!TIP]
-> **Team Focus:**
-> `Digital Logic` • `Verilog HDL` • `FPGA` • `VLSI` • `Simulation`
+> **Our Technical Focus**
+>
+> `Digital Logic`  • 
+> `Verilog HDL`  • 
+> `FPGA`  • 
+> `VLSI`  • 
+> `Simulation`
 
 <br>
 
