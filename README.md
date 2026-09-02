@@ -16,12 +16,6 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge"/>
 </p>
 
-<p align="center">
-  <img src="docs/mux4_1-logic-animation.gif"
-       alt="Animated 4:1 Multiplexer Logic Flow"
-       width="950"/>
-</p>
-
 ---
 
 ## 📌 Overview
@@ -270,7 +264,7 @@ The animation below demonstrates how the selected input propagates through the t
 
 <p align="center">
   <img src="docs/mux4_1-logic-animation.gif"
-       alt="Animated 4:1 MUX Signal Flow"
+       alt="Animated 4:1 Multiplexer Logic Flow"
        width="950"/>
 </p>
 
