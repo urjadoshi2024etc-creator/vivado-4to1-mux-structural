@@ -428,35 +428,29 @@ FPGA Implementation
 
 ---
 
-## 👨‍💻 Author
+## 👥 Team
 
+This project was collaboratively designed, simulated, documented, and implemented by:
 <p align="center">
-
-<b>Urja Doshi</b>
-
-<br>
-
-Electronics & Communication Engineering
+  
+**Jayesh Shahare** • **Atharva Chaudhari** • **Arya Chawale** • **Urja Doshi** 
 
 <br><br>
 
-Digital Logic • Verilog • FPGA • VLSI
+Electronics & Communication Engineering
 
+<br>
+Digital Logic • Verilog • FPGA • VLSI
 </p>
 
 ---
 
 <p align="center">
-
 ### 🔀 Select • Route • Output
-
 <b>Built with Verilog HDL and Xilinx Vivado.</b>
-
 </p>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=120&section=footer"/>
 </p>
 ```
-
-This version is much cleaner: **the 2:1 MUX is explained once**, the architecture is shown once through your actual SVG, and the rest of the README focuses on **your 4:1 implementation, verification, FPGA work, and repository contents**.
