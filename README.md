@@ -436,7 +436,6 @@ This project was collaboratively designed, simulated, documented, and implemente
 **Jayesh Shahare** • **Atharva Chaudhari** • **Arya Chawale** • **Urja Doshi** 
 
 <br><br>
-
 Electronics & Communication Engineering
 
 <br>
