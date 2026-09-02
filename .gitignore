@@ -1,0 +1,90 @@
+ChatGPT said:
+Absolutely. Your project is already well structured. One small correction: your .gitignore patterns can be simplified, and the README should explicitly state that sel[1:0] maps to in[0]–in[3].
+
+I’d recommend this repository name:
+
+vivado-4to1-mux-structural
+
+GitHub description:
+
+Structural Verilog implementation of a 4:1 MUX using three 2:1 MUXes in Xilinx Vivado, with RTL schematic and behavioral simulation.
+
+Here are clean, ready-to-paste versions of both files.
+
+.gitignore
+# ==============================================================================
+# Xilinx Vivado Project - Git Ignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Vivado generated files and directories
+# ------------------------------------------------------------------------------
+.Xil/
+.cache/
+.hw/
+.ip_user_files/
+.runs/
+.sim/
+.gen/
+srcs/
+*.cache/
+*.hw/
+*.runs/
+*.sim/
+*.gen/
+
+# ------------------------------------------------------------------------------
+# Vivado logs and temporary files
+# ------------------------------------------------------------------------------
+*.log
+*.jou
+*.str
+*.pb
+*.wdb
+*.vcd
+*.dmp
+*.bak
+
+vivado*.log
+vivado*.jou
+vivado*.str
+vivado_pid*.str
+vivado_pid*.zip
+
+# ------------------------------------------------------------------------------
+# Xilinx simulation files
+# ------------------------------------------------------------------------------
+xsim.dir/
+xsim.covdb/
+xelab.pb
+xvlog.pb
+xvhdl.pb
+
+compile.log
+elaborate.log
+simulate.log
+
+# ------------------------------------------------------------------------------
+# WebTalk / generated reports
+# ------------------------------------------------------------------------------
+webtalk.log
+webtalk.xml
+webtalk_pn.xml
+
+# ------------------------------------------------------------------------------
+# Vivado HLS / Vitis generated files
+# ------------------------------------------------------------------------------
+*.la
+*.o
+*.lo
+*.a
+*.so
+*.dll
+*.dylib
+
+# ------------------------------------------------------------------------------
+# Operating system files
+# ------------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
