@@ -1,72 +1,100 @@
-# 🔀 4:1 Multiplexer Using 2:1 MUX Logic — Verilog | Vivado
+# 🔀 4:1 Multiplexer Using 2:1 MUXes — Verilog | Vivado
 
 <p align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,100:2c5364&height=220&section=header&text=4:1%20Multiplexer&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%"/>
-
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,100:2c5364&height=220&section=header&text=4:1%20MUX%20Using%202:1%20MUXes&fontSize=38&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%"/>
 </p>
 
 <p align="center">
-  <b>A combinational 4:1 multiplexer implemented in Verilog HDL and prepared for FPGA synthesis using Xilinx Vivado.</b>
+  <b>A hierarchical structural Verilog implementation of a 4:1 Multiplexer using three 2:1 Multiplexer modules.</b>
 </p>
 
 <p align="center">
-
-![Verilog](https://img.shields.io/badge/HDL-Verilog-1f425f?style=for-the-badge\&logo=verilog)
-![Xilinx Vivado](https://img.shields.io/badge/Xilinx-Vivado-red?style=for-the-badge)
-![FPGA](https://img.shields.io/badge/Target-FPGA-blue?style=for-the-badge)
-![Simulation](https://img.shields.io/badge/Simulation-XSim-green?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
-
+  <img src="https://img.shields.io/badge/HDL-Verilog-blue?style=for-the-badge&logo=verilog" />
+  <img src="https://img.shields.io/badge/FPGA-Xilinx%20Vivado-red?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Simulation-XSim-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Digital%20Logic-Multiplexer-purple?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" />
 </p>
 
 ---
 
 ## 📌 Project Overview
 
-This project implements a **4:1 Multiplexer** using Verilog HDL.
+This project implements a **4:1 Multiplexer (MUX)** using **three 2:1 Multiplexer modules** in Verilog HDL.
 
-A multiplexer is a combinational circuit that selects one input from several available inputs and forwards the selected value to a single output.
+Instead of designing the 4:1 MUX as a single block, the circuit is decomposed into smaller reusable **2:1 MUX modules** and connected hierarchically.
 
-In this design:
+The design uses:
 
-* Four data inputs are used: `d0`, `d1`, `d2`, and `d3`
-* Two select inputs are used: `s0` and `s1`
-* One output is produced: `y`
+* **4 data inputs** → `d0`, `d1`, `d2`, `d3`
+* **2 select inputs** → `s0`, `s1`
+* **1 output** → `y`
+* **3 × 2:1 MUXes**
 
-The two select signals determine which data input is connected to the output.
-
-The design is logically organized as **three 2:1 multiplexer operations**:
-
-1. Select between `d0` and `d1`
-2. Select between `d2` and `d3`
-3. Select between the two intermediate results
-
-This creates the complete functionality of a 4:1 multiplexer while clearly showing the internal selection stages.
+The design was developed and simulated using **Xilinx Vivado and XSim**.
 
 ---
 
 ## 🎯 Objectives
 
-* Design a **4:1 Multiplexer** using **2:1 MUX logic**
-* Implement the design using **Verilog HDL**
-* Understand **combinational logic**
-* Understand **continuous assignments**
-* Use the Verilog **ternary/conditional operator**
-* Understand internal signal/wire connections
-* Verify functionality using a **Verilog testbench**
-* Simulate the design using **Xilinx Vivado / XSim**
-* Synthesize and implement the design for an FPGA
-* Apply physical pin constraints using an **XDC file**
-* Generate an FPGA bitstream
+* Understand the operation of a **4:1 Multiplexer**
+* Implement a larger combinational circuit using smaller modules
+* Practice **hierarchical structural Verilog**
+* Understand Verilog module instantiation
+* Understand the **ternary operator**
+* Create and apply FPGA pin constraints using an `.xdc` file
+* Verify the design through simulation
+* Observe the synthesized RTL structure
+* Implement the design on an FPGA board
 
 ---
 
-## 🧠 Multiplexer Operation
+# 🧠 What is a Multiplexer?
 
-A 4:1 multiplexer has four data inputs and two select inputs.
+A **Multiplexer (MUX)** is a combinational digital circuit that selects one input from multiple inputs and forwards the selected input to a single output.
 
-The select inputs form a two-bit binary value. This value determines which data input is passed to the output.
+For a **2:1 MUX**:
+
+```text
+        ┌─────────┐
+ a ────►│         │
+ b ────►│  2:1    ├────► y
+ sel ──►│   MUX   │
+        └─────────┘
+```
+
+Its basic Boolean expression is:
+
+```text
+y = sel ? b : a
+```
+
+The Verilog ternary operator:
+
+```text
+condition ? value_if_true : value_if_false
+```
+
+provides a compact way to describe this selection logic.
+
+---
+
+# 🔢 4:1 Multiplexer
+
+A 4:1 MUX contains:
+
+```text
+Inputs:
+d0, d1, d2, d3
+
+Select:
+s0, s1
+
+Output:
+y
+```
+
+The two select lines determine which data input reaches the output.
 
 ### Truth Table
 
@@ -77,588 +105,509 @@ The select inputs form a two-bit binary value. This value determines which data 
 |   1  |   0  |      `d2`      | `y = d2` |
 |   1  |   1  |      `d3`      | `y = d3` |
 
-The lower select signal, `s0`, chooses between inputs within each pair.
+---
 
-The higher select signal, `s1`, chooses between the results of those two pairs.
+# 🏗️ Architecture
+
+The 4:1 MUX is constructed using **three 2:1 MUXes**.
+
+### Stage 1
+
+Two 2:1 MUXes operate in parallel:
+
+* MUX 0 selects between `d0` and `d1`
+* MUX 1 selects between `d2` and `d3`
+* Both are controlled by `s0`
+
+### Stage 2
+
+A third 2:1 MUX selects between the outputs of the first two MUXes.
+
+* Input 0 → output of MUX 0
+* Input 1 → output of MUX 1
+* Select → `s1`
+
+The resulting output is `y`.
 
 ---
 
-## 🏗️ Internal Architecture
+## 🔀 Architecture Diagram
 
-The design can be understood as a **two-level selection network**.
+<p align="center">
+  <img src="docs/mux4_1-architecture.svg" alt="4:1 Multiplexer using three 2:1 Multiplexers" width="900"/>
+</p>
 
-### First Selection Level
-
-The first operation selects between the first pair of inputs:
-
-```text
-d0 ──┐
-     ├──► mux_bottom
-d1 ──┘
-       ▲
-       │
-       s0
-```
-
-At the same time, another selection operates on the second pair:
+### Signal Flow
 
 ```text
-d2 ──┐
-     ├──► mux_top
-d3 ──┘
-       ▲
-       │
-       s0
-```
+w0 = s0 ? d1 : d0
+w1 = s0 ? d3 : d2
 
-### Final Selection Level
-
-The final operation selects between the two intermediate results:
-
-```text
-mux_bottom ──┐
-              ├──► y
-mux_top ──────┘
-                ▲
-                │
-                s1
-```
-
-### Complete Logical Structure
-
-```text
-             s0
-              │
-       ┌──────┴──────┐
-       │             │
-   ┌───▼───┐     ┌───▼───┐
-   │ 2:1   │     │ 2:1   │
-   │ Logic │     │ Logic │
-   └───┬───┘     └───┬───┘
-       │               │
-       │ mux_bottom    │ mux_top
-       └───────┬───────┘
-               │
-           ┌───▼───┐
- s1 ──────►│ 2:1   │
-           │ Logic │
-           └───┬───┘
-               │
-               ▼
-               y
-```
-
----
-
-## 💻 Verilog Design Concepts
-
-The complete Verilog implementation is available in:
-
-```text
-src/mux4_1.v
-```
-
-Instead of reproducing the complete source code here, this section highlights the important Verilog concepts used in the design.
-
----
-
-### ⏱️ Time Scale
-
-The source begins with:
-
-```verilog
-`timescale 1ns / 1ps
-```
-
-This defines the simulation time unit and precision.
-
-* `1ns` → simulation time unit
-* `1ps` → simulation precision
-
-Although the multiplexer itself does not use explicit delays, defining the time scale provides a consistent simulation environment.
-
----
-
-### 🔌 Module and Ports
-
-The top-level design is contained inside the `mux4_1` module.
-
-Conceptually, its interface contains:
-
-```text
-Inputs  → d0, d1, d2, d3, s0, s1
-Output  → y
-```
-
-All signals are **single-bit** because this project implements a one-bit 4:1 multiplexer.
-
-The module interface allows Vivado to connect the logical signals to FPGA pins through the XDC constraints file.
-
----
-
-## 🔗 Internal Wires
-
-Two internal signals are used to store the results of the first-level selections:
-
-```text
-mux_bottom
-mux_top
-```
-
-They allow the outputs of the first two selection operations to become inputs to the final selection operation.
-
-Conceptually:
-
-```text
-d0,d1 ──► mux_bottom ──┐
-                       ├──► y
-d2,d3 ──► mux_top ─────┘
-```
-
-This demonstrates how intermediate signals can be used to construct larger combinational circuits.
-
----
-
-## 🔀 Verilog Conditional / Ternary Operator
-
-One of the most useful constructs in this design is the Verilog **conditional operator**, commonly called the **ternary operator**.
-
-Its general syntax is:
-
-```verilog
-condition ? value_if_true : value_if_false
-```
-
-For example:
-
-```verilog
-mux_bottom = s0 ? d1 : d0;
-```
-
-This means:
-
-```text
-If s0 = 1 → mux_bottom = d1
-If s0 = 0 → mux_bottom = d0
-```
-
-The same concept is used for the second input pair:
-
-```text
-mux_top = s0 ? d3 : d2
-```
-
-And finally:
-
-```text
-y = s1 ? mux_top : mux_bottom
-```
-
-### Why is this useful?
-
-The ternary operator provides a compact way of describing a **2:1 multiplexer**:
-
-```text
-             ┌──────────────┐
-a ──────────►│              │
-b ──────────►│    2:1 MUX   ├──► y
-sel ────────►│              │
-             └──────────────┘
-```
-
-It is particularly useful for simple combinational selection logic.
-
----
-
-## 🔄 Continuous Assignment
-
-The design uses continuous assignments through the Verilog `assign` statement.
-
-For example:
-
-```verilog
-assign y = condition ? b : a;
-```
-
-A continuous assignment continuously evaluates the right-hand expression and updates the output whenever an input changes.
-
-This is appropriate for a combinational circuit because:
-
-* No clock is required
-* No storage is required
-* The output responds to input changes
-* The logic can be represented directly as a combinational relationship
-
----
-
-## 🧩 Why `assign` Instead of an `always` Block?
-
-A multiplexer can also be described using an `always` block.
-
-For example, a conceptual equivalent could use:
-
-```verilog
-always @(*) begin
-    ...
-end
-```
-
-However, this project uses continuous assignments because the logic consists of direct combinational relationships.
-
-The `assign` approach keeps the implementation compact and makes the selection behavior easy to identify.
-
----
-
-## 🧮 Complete Selection Logic
-
-The three logical selection stages can be summarized as:
-
-```text
-mux_bottom = s0 ? d1 : d0
-mux_top    = s0 ? d3 : d2
-y          = s1 ? mux_top : mux_bottom
+y  = s1 ? w1 : w0
 ```
 
 Therefore:
 
 ```text
 s1 s0
-─────
-0  0  → d0
-0  1  → d1
-1  0  → d2
-1  1  → d3
+│  │
+│  └── selects between inputs within each pair
+│
+└───── selects between the two intermediate results
 ```
-
-The equivalent Boolean expression is:
-
-```text
-y = (~s1 & ~s0 & d0)
-  | (~s1 &  s0 & d1)
-  | ( s1 & ~s0 & d2)
-  | ( s1 &  s0 & d3)
-```
-
-The conditional assignments provide the same functionality in a more compact form.
 
 ---
 
-## 🧪 Verification
+# 🧩 Hierarchical Design
 
-The design is verified using a dedicated Verilog testbench.
+The project is divided into reusable modules.
 
-Testbench source:
+```text
+                 mux4_1
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+       MUX0        MUX1        MUX2
+       2:1         2:1         2:1
+        │           │           │
+      d0,d1       d2,d3       w0,w1
+        │           │           │
+       s0          s0          s1
+```
+
+### Module hierarchy
+
+```text
+mux4_1
+ ├── mux2to1 m0
+ ├── mux2to1 m1
+ └── mux2to1 m2
+```
+
+This approach makes the design:
+
+* Modular
+* Reusable
+* Easier to debug
+* Easier to extend
+* Easier to understand at RTL level
+
+---
+
+# 💻 Verilog Design Approach
+
+The complete source code is available in the repository under:
+
+```text
+src/
+├── mux2to1.v
+└── mux4_1.v
+```
+
+Rather than duplicating the complete source code here, the important concept is the **2:1 MUX selection operation**:
+
+```verilog
+assign y = sel ? b : a;
+```
+
+Here:
+
+```text
+sel = 0 → y = a
+sel = 1 → y = b
+```
+
+The 4:1 MUX then reuses this basic building block three times.
+
+For example, one of the hierarchical connections is:
+
+```verilog
+mux2to1 m0 (
+    .a(d0),
+    .b(d1),
+    .sel(s0),
+    .y(w0)
+);
+```
+
+This connects the first 2:1 MUX to:
+
+```text
+d0 ──┐
+     ├── MUX0 ──► w0
+d1 ──┘
+      ▲
+      │
+      s0
+```
+
+The remaining module connections can be found in:
+
+**`src/mux4_1.v`**
+
+---
+
+# 🧮 Logic Decomposition
+
+The circuit can be understood as three simple operations.
+
+### First 2:1 MUX
+
+```text
+w0 = s0 ? d1 : d0
+```
+
+### Second 2:1 MUX
+
+```text
+w1 = s0 ? d3 : d2
+```
+
+### Final 2:1 MUX
+
+```text
+y = s1 ? w1 : w0
+```
+
+Combining these stages gives the complete 4:1 selection behavior:
+
+```text
+s1 s0 = 00 → d0
+s1 s0 = 01 → d1
+s1 s0 = 10 → d2
+s1 s0 = 11 → d3
+```
+
+---
+
+# 🧪 Verification
+
+The design is verified using a Verilog testbench.
+
+Testbench location:
 
 ```text
 sim/mux4_1tb.v
 ```
 
-The testbench applies combinations of the data and select inputs and observes the resulting output.
+The testbench applies different combinations of:
 
-### Example Input Pattern
+* Data inputs
+* Select inputs
 
-A useful test pattern is:
+and observes the resulting output.
 
-```verilog
-d0 = 0;
-d1 = 1;
-d2 = 0;
-d3 = 1;
-```
-
-With this pattern, changing the select signals makes it easy to observe whether the correct input is being routed to `y`.
-
-### Expected Behavior
+### Required Select Combinations
 
 ```text
-s1 s0     y
-──────────────
-0  0      d0
-0  1      d1
-1  0      d2
-1  1      d3
+00 → d0
+01 → d1
+10 → d2
+11 → d3
 ```
+
+The testbench therefore verifies that the output follows the correct selected input.
 
 ---
 
-## 📊 Simulation
+# 📈 Simulation Waveform
 
-Simulation is performed using **Xilinx Vivado XSim**.
-
-The waveform should demonstrate that `y` follows the selected data input whenever `s0` or `s1` changes.
-
-### Simulation Waveform
-
-Add the exported waveform screenshot to:
-
-```text
-docs/simulation-waveform.png
-```
-
-Then display it in the README:
+The expected simulation demonstrates the four possible select combinations.
 
 <p align="center">
-
-<img src="docs/simulation-waveform.png" alt="Simulation Waveform" width="850"/>
-
+  <img src="docs/simulation-waveform.png" alt="4:1 MUX XSim simulation waveform" width="950"/>
 </p>
+
+### Verification Summary
+
+| Select | Expected Output |
+| :----: | :-------------: |
+|  `00`  |       `d0`      |
+|  `01`  |       `d1`      |
+|  `10`  |       `d2`      |
+|  `11`  |       `d3`      |
+
+If the waveform follows these four cases correctly, the functional behavior of the 4:1 MUX is verified.
 
 ---
 
-## 🔬 RTL Design
+# 🖥️ RTL Schematic
 
-Vivado's RTL elaboration provides a visual representation of the synthesized logical structure.
-
-The design consists of three logical 2:1 selection stages connected through intermediate signals.
-
-### RTL Schematic
-
-Place the exported Vivado RTL schematic at:
-
-```text
-docs/rtl-schematic.png
-```
+Vivado can generate an RTL schematic showing how the hierarchical modules are connected.
 
 <p align="center">
-
-<img src="docs/rtl-schematic.png" alt="RTL Schematic" width="850"/>
-
+  <img src="docs/rtl-schematic.png" alt="Vivado RTL schematic of 4:1 MUX" width="950"/>
 </p>
 
----
-
-## ⚙️ FPGA Implementation
-
-The design can be synthesized, implemented, and converted into an FPGA bitstream using Xilinx Vivado.
-
-### Vivado Flow
-
-```text
-Create Project
-      │
-      ▼
-Add Verilog Source
-      │
-      ▼
-Add Simulation Source
-      │
-      ▼
-Add XDC Constraints
-      │
-      ▼
-Run Simulation
-      │
-      ▼
-Elaborate RTL
-      │
-      ▼
-Run Synthesis
-      │
-      ▼
-Run Implementation
-      │
-      ▼
-Generate Bitstream
-      │
-      ▼
-Program FPGA
-```
-
-During synthesis, Vivado converts the Verilog description into FPGA-specific combinational logic.
+The schematic should show the three 2:1 MUX stages forming the complete 4:1 MUX.
 
 ---
 
-## 📍 FPGA Pin Constraints
+# 🔌 FPGA Implementation
 
-The project contains an XDC constraints file:
+The design can be mapped to an FPGA using an XDC constraints file.
+
+Constraint file:
 
 ```text
 constraints/mux4_1c.xdc
 ```
 
-The constraints map the logical ports to physical FPGA package pins.
-
-The project uses constraints for:
+The constraints define the physical FPGA pins associated with:
 
 ```text
 d0
 d1
 d2
 d3
+
 s0
 s1
+
 y
 ```
 
-A typical hardware configuration can connect:
-
-```text
-FPGA Switches ──► d0,d1,d2,d3
-FPGA Switches ──► s0,s1
-                     │
-                     ▼
-                   4:1 MUX
-                     │
-                     ▼
-                    y
-                     │
-                     ▼
-                   LED
-```
-
-> ⚠️ **Important:** FPGA pin assignments are board-specific. The provided XDC file should only be used with the target board for which it was created. For another FPGA board, the package pin assignments and I/O standards must be checked and updated.
+This allows the logical Verilog design to interact with physical FPGA inputs and outputs such as switches and LEDs.
 
 ---
 
-## 🖥️ Hardware Demonstration
-
-If a hardware photograph is available, place it at:
-
-```text
-docs/fpga-hardware.jpg
-```
+# 📷 Hardware Implementation
 
 <p align="center">
-
-<img src="docs/fpga-hardware.jpg" alt="FPGA Hardware Demonstration" width="700"/>
-
+  <img src="docs/fpga-hardware.jpg" alt="FPGA hardware implementation of 4:1 Multiplexer" width="850"/>
 </p>
 
-The hardware implementation allows the selection process to be observed directly using physical switches and an LED output.
+The hardware implementation demonstrates the mapping between the logical MUX design and the physical FPGA board.
+
+For example:
+
+```text
+FPGA Switches
+     │
+     ▼
+d0 d1 d2 d3
+s0 s1
+     │
+     ▼
+  4:1 MUX
+     │
+     ▼
+    LED
+```
 
 ---
 
-## 📁 Repository Structure
+# 📁 Repository Structure
 
 ```text
 vivado-4to1-mux-structural/
 │
-├── 📄 README.md
-├── 📄 LICENSE
-├── 📄 .gitignore
+├── README.md
+├── LICENSE
+├── .gitignore
 │
-├── 📁 src/
+├── src/
+│   ├── mux2to1.v
 │   └── mux4_1.v
 │
-├── 📁 sim/
+├── sim/
 │   └── mux4_1tb.v
 │
-├── 📁 constraints/
+├── constraints/
 │   └── mux4_1c.xdc
 │
-└── 📁 docs/
+└── docs/
+    ├── mux4_1-architecture.svg
     ├── rtl-schematic.png
     ├── simulation-waveform.png
     └── fpga-hardware.jpg
 ```
 
-Generated Vivado project files, simulation databases, synthesis artifacts, implementation files, and other temporary files are intentionally excluded from the repository.
+---
+
+# 🛠️ Tools & Technologies
+
+| Tool / Technology | Purpose                                      |
+| ----------------- | -------------------------------------------- |
+| **Verilog HDL**   | Hardware description                         |
+| **Xilinx Vivado** | Synthesis, implementation & FPGA development |
+| **XSim**          | Functional simulation                        |
+| **XDC**           | FPGA pin constraints                         |
+| **FPGA Board**    | Hardware implementation                      |
+| **Git / GitHub**  | Version control & project sharing            |
 
 ---
 
-## 🛠️ Tools & Technologies
+# 🔍 Design Characteristics
 
-| Tool / Technology          | Purpose                                    |
-| :------------------------- | :----------------------------------------- |
-| **Verilog HDL**            | Hardware description                       |
-| **Xilinx Vivado**          | FPGA design, synthesis, and implementation |
-| **XSim**                   | HDL simulation                             |
-| **XDC**                    | FPGA pin and I/O constraints               |
-| **FPGA Development Board** | Hardware testing                           |
-| **Git & GitHub**           | Version control and documentation          |
+### Type
 
----
+```text
+Combinational Logic
+```
 
-## 🔍 Design Characteristics
+### Inputs
 
-| Characteristic   | Description              |
-| :--------------- | :----------------------- |
-| Logic Type       | Combinational            |
-| Data Inputs      | 4                        |
-| Select Inputs    | 2                        |
-| Output           | 1                        |
-| Clock            | Not required             |
-| Reset            | Not required             |
-| Storage          | None                     |
-| Internal Signals | 2                        |
-| Selection Stages | 3 logical 2:1 operations |
-| HDL              | Verilog                  |
-| Simulation       | XSim                     |
-| FPGA Tool        | Xilinx Vivado            |
+```text
+4 Data Inputs
+2 Select Inputs
+```
 
----
+### Output
 
-## ✅ Verification Checklist
+```text
+1 Output
+```
 
-* [x] 4:1 MUX logic implemented
-* [x] Three logical 2:1 selection stages
-* [x] Combinational implementation
-* [x] Continuous assignments
-* [x] Conditional / ternary operator
-* [x] Verilog testbench
-* [x] Functional simulation
-* [x] RTL elaboration
-* [x] Synthesis
-* [x] Implementation
-* [x] FPGA constraints
-* [x] Bitstream generation
+### Building Blocks
+
+```text
+3 × 2:1 MUX
+```
+
+### Logic Depth
+
+```text
+2 MUX levels
+```
+
+The first level performs pair-wise selection, while the second level selects between the two intermediate results.
 
 ---
 
-## 🚀 Possible Future Improvements
+# 💡 Why Use 2:1 MUXes?
 
-* [ ] Add a self-checking testbench
-* [ ] Create a reusable `mux2to1` module
-* [ ] Implement an 8:1 MUX using 2:1 MUXes
-* [ ] Implement a 16:1 MUX using hierarchical design
-* [ ] Create a parameterized N:1 multiplexer
-* [ ] Implement the design using SystemVerilog
-* [ ] Add timing and utilization analysis
-* [ ] Add automated HDL simulation scripts
-* [ ] Add FPGA hardware demonstration video
-* [ ] Compare behavioral and structural implementations
+A larger multiplexer can be constructed from smaller multiplexers.
+
+For a 4:1 MUX:
+
+```text
+Number of 2:1 MUXes = 3
+```
+
+Generalizing this idea:
+
+```text
+8:1 MUX → 7 × 2:1 MUXes
+16:1 MUX → 15 × 2:1 MUXes
+```
+
+In general:
+
+```text
+Number of 2:1 MUXes = N - 1
+```
+
+for an `N:1` MUX when `N` is a power of two.
+
+This demonstrates how complex digital logic can be constructed from smaller reusable building blocks.
 
 ---
 
-## 📚 Learning Outcomes
+# 📚 What I Learned
 
-This project demonstrates practical understanding of:
+Through this project, the following concepts were explored:
 
-* Combinational digital logic
-* Multiplexer architecture
-* Select-line operation
-* Hierarchical selection concepts
-* Verilog module design
-* Internal wire connections
-* Continuous assignments
-* Conditional / ternary operators
+* Digital multiplexer architecture
+* 2:1 and 4:1 MUX operation
+* Truth tables
+* Combinational logic
+* Verilog HDL
+* Ternary operators
+* Hierarchical module design
+* Structural Verilog
+* Module instantiation
 * Testbench development
-* Simulation and waveform analysis
-* RTL elaboration
-* FPGA synthesis
-* FPGA implementation
-* XDC pin constraints
-* Bitstream generation
+* Functional simulation
+* XSim waveform analysis
+* RTL schematic generation
+* FPGA pin constraints
+* Synthesis and implementation
 * GitHub project organization
 
 ---
 
-## 👨‍💻 Author
+# 🚀 Possible Improvements
 
-**Atharva Chaudhari, Arya Chawale, Jayesh Shahare, Urja Doshi**
+Future versions of this project could include:
 
-Electronics & Telecommunication Engineering
+* Parameterized `N:1` multiplexer design
+* Generic MUX generation using Verilog parameters
+* Larger 8:1 and 16:1 MUX architectures
+* Gate-level implementation
+* Timing analysis
+* Resource utilization analysis
+* FPGA timing constraints
+* Automated simulation scripts
+* Hardware demonstration video/GIF
+* Comparison between behavioral and structural implementations
 
 ---
 
-## ⭐ Support
+# ✅ Project Checklist
 
-If this project helped you understand Verilog, multiplexers, or FPGA design, consider giving the repository a ⭐ on GitHub.
+* [x] Design 2:1 MUX
+* [x] Build 4:1 MUX using 2:1 MUXes
+* [x] Create hierarchical Verilog modules
+* [x] Create simulation testbench
+* [x] Verify all select combinations
+* [x] Generate RTL schematic
+* [x] Create FPGA constraints
+* [x] Synthesize design
+* [x] Implement on FPGA
+* [x] Organize source files for GitHub
+* [x] Add architecture visualization
+* [x] Document the project
+
+---
+
+# 📌 Key Concept
+
+The entire design can be reduced to one simple idea:
+
+```text
+              4:1 MUX
+                 │
+       ┌─────────┴─────────┐
+       │                   │
+    Pair 0              Pair 1
+    d0 / d1             d2 / d3
+       │                   │
+       └───────┐   ┌───────┘
+               ▼   ▼
+                MUX
+                 │
+                 ▼
+                 y
+```
+
+The first select line `s0` chooses an input **within each pair**, while the second select line `s1` chooses **which pair reaches the output**.
+
+---
+
+# 👨‍💻 Author
+
+**Urja Doshi**
+
+Electronics & Communication Engineering
+Digital Logic • Verilog • FPGA • VLSI
+
+---
+
+# ⭐ Support
+
+If you found this project useful for learning digital logic, Verilog, or FPGA design, consider giving the repository a ⭐.
 
 ---
 
 <p align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=120&section=footer" width="100%"/>
+### 🔀 Select. Route. Output.
 
+**Built with Verilog HDL and Xilinx Vivado.**
+
+</p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=120&section=footer"/>
 </p>
