@@ -374,7 +374,9 @@ This allows the logical Verilog design to interact with physical FPGA inputs and
 # 📷 Hardware Implementation
 
 <p align="center">
-  <img src="docs/fpga-hardware.jpg" alt="FPGA hardware implementation of 4:1 Multiplexer" width="850"/>
+  <img src="docs/fpga-hardware.svg"
+       alt="FPGA Hardware Implementation"
+       width="900"/>
 </p>
 
 The hardware implementation demonstrates the mapping between the logical MUX design and the physical FPGA board.
