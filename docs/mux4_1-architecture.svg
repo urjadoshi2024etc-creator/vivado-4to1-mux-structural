@@ -1,0 +1,476 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <marker id="arrow" markerWidth="10" markerHeight="10"
+            refX="9" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#7dd3fc"/>
+    </marker>
+  </defs>
+
+  <!-- ================= BACKGROUND ================= -->
+  <rect width="1200" height="720" fill="#0d1117"/>
+
+  <!-- Main panel -->
+  <rect x="30" y="25" width="1140" height="670"
+        rx="18"
+        fill="#111827"
+        stroke="#30363d"
+        stroke-width="2"/>
+
+  <!-- ================= TITLE ================= -->
+  <text x="600" y="65"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="28"
+        font-weight="bold"
+        fill="#f0f6fc">
+    4:1 Multiplexer Using Three 2:1 MUXes
+  </text>
+
+  <text x="600" y="92"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15"
+        fill="#8b949e">
+    Hierarchical Structural Verilog Architecture
+  </text>
+
+
+  <!-- ================= STAGE LABELS ================= -->
+
+  <text x="310" y="135"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold"
+        fill="#58a6ff">
+    STAGE 1
+  </text>
+
+  <text x="310" y="158"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13"
+        fill="#8b949e">
+    Pair-wise Selection
+  </text>
+
+
+  <text x="750" y="135"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold"
+        fill="#58a6ff">
+    STAGE 2
+  </text>
+
+  <text x="750" y="158"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13"
+        fill="#8b949e">
+    Final Selection
+  </text>
+
+
+  <!-- ================= MUX 0 ================= -->
+
+  <!-- MUX body -->
+  <polygon points="300,205 300,325 395,295 395,235"
+           fill="#161b22"
+           stroke="#58a6ff"
+           stroke-width="2.5"/>
+
+  <!-- MUX label -->
+  <text x="345" y="265"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#f0f6fc">
+    MUX 0
+  </text>
+
+  <text x="345" y="285"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="12"
+        fill="#8b949e">
+    2:1
+  </text>
+
+
+  <!-- ================= MUX 1 ================= -->
+
+  <polygon points="300,405 300,525 395,495 395,435"
+           fill="#161b22"
+           stroke="#58a6ff"
+           stroke-width="2.5"/>
+
+  <text x="345" y="465"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#f0f6fc">
+    MUX 1
+  </text>
+
+  <text x="345" y="485"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="12"
+        fill="#8b949e">
+    2:1
+  </text>
+
+
+  <!-- ================================================= -->
+  <!-- DATA INPUT WIRES -->
+  <!-- ================================================= -->
+
+  <!-- d0 -->
+  <line x1="90" y1="230"
+        x2="300" y2="230"
+        stroke="#7dd3fc"
+        stroke-width="3"
+        marker-end="url(#arrow)"
+        filter="url(#glow)"/>
+
+  <text x="70" y="235"
+        text-anchor="end"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#7dd3fc">
+    d0
+  </text>
+
+
+  <!-- d1 -->
+  <line x1="90" y1="300"
+        x2="300" y2="300"
+        stroke="#7dd3fc"
+        stroke-width="3"
+        marker-end="url(#arrow)"
+        filter="url(#glow)"/>
+
+  <text x="70" y="305"
+        text-anchor="end"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#7dd3fc">
+    d1
+  </text>
+
+
+  <!-- d2 -->
+  <line x1="90" y1="430"
+        x2="300" y2="430"
+        stroke="#7dd3fc"
+        stroke-width="3"
+        marker-end="url(#arrow)"
+        filter="url(#glow)"/>
+
+  <text x="70" y="435"
+        text-anchor="end"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#7dd3fc">
+    d2
+  </text>
+
+
+  <!-- d3 -->
+  <line x1="90" y1="500"
+        x2="300" y2="500"
+        stroke="#7dd3fc"
+        stroke-width="3"
+        marker-end="url(#arrow)"
+        filter="url(#glow)"/>
+
+  <text x="70" y="505"
+        text-anchor="end"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#7dd3fc">
+    d3
+  </text>
+
+
+  <!-- ================= s0 SELECT LINES ================= -->
+
+  <!-- s0 vertical bus -->
+  <line x1="250" y1="180"
+        x2="250" y2="545"
+        stroke="#f59e0b"
+        stroke-width="3"/>
+
+  <!-- s0 branch to MUX0 -->
+  <line x1="250" y1="265"
+        x2="300" y2="265"
+        stroke="#f59e0b"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+  <!-- s0 branch to MUX1 -->
+  <line x1="250" y1="465"
+        x2="300" y2="465"
+        stroke="#f59e0b"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+  <!-- s0 label -->
+  <text x="250" y="175"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#f59e0b">
+    s0
+  </text>
+
+
+  <!-- ================= MUX0 OUTPUT ================= -->
+
+  <line x1="395" y1="265"
+        x2="500" y2="265"
+        stroke="#7dd3fc"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+  <text x="450" y="250"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16"
+        font-weight="bold"
+        fill="#7dd3fc">
+    w0
+  </text>
+
+
+  <!-- ================= MUX1 OUTPUT ================= -->
+
+  <line x1="395" y1="465"
+        x2="500" y2="465"
+        stroke="#7dd3fc"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+  <text x="450" y="450"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16"
+        font-weight="bold"
+        fill="#7dd3fc">
+    w1
+  </text>
+
+
+  <!-- ================================================= -->
+  <!-- CONNECTIONS TO FINAL MUX -->
+  <!-- ================================================= -->
+
+  <!-- w0 routing -->
+  <path d="M500,265
+           L560,265
+           L560,370
+           L670,370"
+        fill="none"
+        stroke="#7dd3fc"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+  <!-- w1 routing -->
+  <path d="M500,465
+           L560,465
+           L560,410
+           L670,410"
+        fill="none"
+        stroke="#7dd3fc"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+
+  <!-- ================= FINAL MUX ================= -->
+
+  <polygon points="670,335 670,445 775,415 775,365"
+           fill="#161b22"
+           stroke="#a78bfa"
+           stroke-width="3"/>
+
+  <text x="720" y="390"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#f0f6fc">
+    MUX 2
+  </text>
+
+  <text x="720" y="410"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="12"
+        fill="#8b949e">
+    2:1
+  </text>
+
+
+  <!-- ================= s1 SELECT ================= -->
+
+  <line x1="625" y1="390"
+        x2="670" y2="390"
+        stroke="#f59e0b"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+  <text x="625" y="375"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold"
+        fill="#f59e0b">
+    s1
+  </text>
+
+
+  <!-- ================= OUTPUT y ================= -->
+
+  <line x1="775" y1="390"
+        x2="920" y2="390"
+        stroke="#4ade80"
+        stroke-width="4"
+        marker-end="url(#arrow)"
+        filter="url(#glow)"/>
+
+  <circle cx="920" cy="390" r="6"
+          fill="#4ade80"/>
+
+  <text x="945" y="397"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="22"
+        font-weight="bold"
+        fill="#4ade80">
+    y
+  </text>
+
+
+  <!-- ================= LOGIC DESCRIPTION ================= -->
+
+  <rect x="825" y="190"
+        width="285"
+        height="150"
+        rx="12"
+        fill="#0d1117"
+        stroke="#30363d"
+        stroke-width="2"/>
+
+  <text x="967" y="220"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16"
+        font-weight="bold"
+        fill="#f0f6fc">
+    Selection Logic
+  </text>
+
+  <text x="850" y="250"
+        font-family="monospace"
+        font-size="14"
+        fill="#7dd3fc">
+    w0 = s0 ? d1 : d0
+  </text>
+
+  <text x="850" y="280"
+        font-family="monospace"
+        font-size="14"
+        fill="#7dd3fc">
+    w1 = s0 ? d3 : d2
+  </text>
+
+  <text x="850" y="310"
+        font-family="monospace"
+        font-size="14"
+        fill="#4ade80">
+    y  = s1 ? w1 : w0
+  </text>
+
+
+  <!-- ================= TRUTH TABLE ================= -->
+
+  <rect x="825" y="475"
+        width="285"
+        height="150"
+        rx="12"
+        fill="#0d1117"
+        stroke="#30363d"
+        stroke-width="2"/>
+
+  <text x="967" y="505"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16"
+        font-weight="bold"
+        fill="#f0f6fc">
+    Truth Table
+  </text>
+
+  <text x="860" y="535"
+        font-family="monospace"
+        font-size="14"
+        fill="#8b949e">
+    s1   s0    →    y
+  </text>
+
+  <text x="860" y="560"
+        font-family="monospace"
+        font-size="14"
+        fill="#f0f6fc">
+    0    0     →    d0
+  </text>
+
+  <text x="860" y="585"
+        font-family="monospace"
+        font-size="14"
+        fill="#f0f6fc">
+    0    1     →    d1
+  </text>
+
+  <text x="860" y="610"
+        font-family="monospace"
+        font-size="14"
+        fill="#f0f6fc">
+    1    0     →    d2
+  </text>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <line x1="80" y1="655"
+        x2="1120" y2="655"
+        stroke="#30363d"
+        stroke-width="1"/>
+
+  <text x="600" y="680"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13"
+        fill="#8b949e">
+    4:1 MUX = 3 × 2:1 MUXes  •  s0 selects within pairs  •  s1 selects the pair
+  </text>
+
+</svg>
