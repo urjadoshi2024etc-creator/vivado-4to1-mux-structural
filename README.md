@@ -422,7 +422,7 @@ vivado-4to1-mux-structural/
     ├── mux4_1-architecture.svg
     ├── rtl-schematic.png
     ├── simulation-waveform.png
-    └── fpga-hardware.jpg
+    └── fpga-hardware.svg
 ```
 
 ---
