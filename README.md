@@ -646,6 +646,7 @@ This project demonstrates practical understanding of:
 ## 👨‍💻 Author
 
 **Atharva Chaudhari, Arya Chawale, Jayesh Shahare, Urja Doshi**
+
 Electronics & Telecommunication Engineering
 
 ---
